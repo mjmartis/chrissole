@@ -1,0 +1,15 @@
+To setup the Chrissole functionality:
+  - Collect a set of images that feature Chris into a folder (e.g. chrisses/).
+  - Run e.g.
+      python3 chris_vis.py chrisses/?.jpg chrisses/??.jpg 
+    to produce matching images with the index of each face labeled.
+  - Manually produce a file (e.g. chrisses/labels.txt) where the ith line
+    contains the index of the face in image i that is Chris (or -1).
+  - Run e.g.
+      python3 chris_db.py chrisses/labels.txt chris.db chrisses/?.jpg chrisses/??.jpg 
+    (where the trailing args must be in the same order as the call to chris_vis.py)
+    to produce a binary database (e.g. chris.db) of the feature vectors of every Chris
+    face seen.
+  - Run e.g.
+      python3 chrissole.py chris.db in.jpg out.jpg rissoles/*
+    to replace Chris' face with a rissole and write it to a new image.
